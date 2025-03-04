@@ -5,7 +5,7 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jasmine - My Eternal Sunshine</title>
+    <title>Jasmine - The Love of My Life</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- ADD HARRY POTTER FONT BELOW -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
@@ -75,6 +75,7 @@
             align-items: center;
         }
 
+        
         .hero {
             justify-content: center;
             text-align: center;
@@ -143,10 +144,12 @@
         }
                 /* === ADD THEME ACCENTS HERE === */
         .hp-accent {
-            color: #740001; /* Gryffindor red */
-            font-family: 'Cinzel', serif;
+            color: #FFDB00; /* Hufflepuff yellow */
+            text-shadow: 1px 1px 3px rgba(45, 45, 45, 0.3); /* Black shadow for contrast */
+            font-family: 'Cinzel', serif !important;
+            /* Optional: Add badger motif */
+            background-image: url('data:image/svg+xml;utf8,<svg ...badger svg... </svg>');
         }
-
         .floating {
             animation: float 3s ease-in-out infinite;
         }
@@ -192,6 +195,7 @@
 
             .magic-button:hover {
                 transform: scale(1.1);
+                background-size: 400% 400%;
                 animation: rainbow 2s infinite;
             }
 
@@ -233,8 +237,8 @@
         <h2>Favorite Moments</h2>
         <div class="moments-grid">
             <div class="moment-card">
-                <h3>Our First Meeting</h3>
-                <p>That sunny afternoon at the café...</p>
+                <h3>Our First Conversation</h3>
+                <p>That random morning in September...</p>
             </div>
             <!-- Add more moment cards -->
         </div>
@@ -252,7 +256,7 @@
     </section>
 
     <footer>
-        <p>Created with 💖 by [Your Name]</p>
+        <p>Created with 💖 by Sajeel</p>
     </footer>
 
     <script>
@@ -274,7 +278,7 @@
                 behavior: 'smooth'
             });
         }
-        // ====== ADD CONFECTI CODE STARTING HERE ======
+        // ====== ADD CONFETTI CODE STARTING HERE ======
         function triggerMagic() {
             const count = 200;
             const defaults = {
