@@ -84,18 +84,35 @@
         }
 
         #about {
-            background: rgba(255,255,255,0.95);
+            background: linear-gradient(45deg, #ffb3ba, #ffdfba); /* Pink to peach */
         }
 
         #moments {
-            background: linear-gradient(45deg, #4ecdc4, #45b7af);
+            background: linear-gradient(45deg, #bae1ff, #a8d8ff); /* Light blue gradient */
         }
 
         #gallery {
             background: #fff9e6;
         }
 
-        #moments.parallax {
+        #love-letter {
+            background: linear-gradient(45deg, #ff758c, #ff7eb3); /* Pink gradient */
+            position: relative;
+            overflow: hidden;
+        }
+
+        #love-letter::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            opacity: 0.1;
+            background-repeat: space;
+            background-size: 40px
+        }
+
+            #moments.parallax {
             background-attachment: fixed;
         }
 
@@ -266,6 +283,7 @@
                 width: 300px;
                 height: 200px;
                 cursor: pointer;
+                transform-style: preserve-3d;
                 transition: transform 0.3s ease;
             }
 
@@ -277,6 +295,7 @@
                 border-right: 150px solid transparent;
                 border-top: 100px solid #ff6b6b;
                 transform-origin: bottom;
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
                 transition: all 0.5s ease;
                 z-index: 2;
             }
@@ -290,6 +309,7 @@
                 margin: 5%;
                 box-shadow: 0 0 10px rgba(0,0,0,0.1);
                 transform: translateY(100%);
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
                 transition: all 0.5s ease;
                 padding: 2rem;
                 z-index: 1;
@@ -445,10 +465,12 @@
 
 .envelope.open .flap {
     transform: rotateX(180deg);
-    border-top-color: #ff8e8e;
+    border-top-color: #ff85a2;
 }
 
 .envelope.open .letter {
+    background: #fff5f7; /* Pale pink */
+    border: 2px solid #ff85a2;
     transform: translateY(-20px);
 }
 
@@ -464,10 +486,25 @@
 
 <script>
 // Add to existing script
+let isOpen = false;
 function toggleLetter() {
     const envelope = document.querySelector('.envelope');
-    envelope.classList.toggle('open');
+    const flap = document.querySelector('.flap');
+    const letter = document.querySelector('.letter');
+    
+    if(!isOpen) {
+        envelope.classList.add('open');
+        flap.style.transform = 'rotateX(180deg)';
+        letter.style.transform = 'translateY(-20px)';
+        isOpen = true;
+    } else {
+        flap.style.transform = 'rotateX(0deg)';
+        letter.style.transform = 'translateY(100%)';
+        envelope.classList.remove('open');
+        isOpen = false;
+    }
 }
+
 </script>
 
     <footer>
