@@ -352,13 +352,27 @@
                 cursor: pointer;
                 transform-style: preserve-3d;
                 perspective: 1000px;
+                overflow: hidden;
             }
+
+            .envelope-body {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #ff8e8e;       /* Same color as flap, or use a different shade */
+                border: 2px solid #ff6b6b; /* Optional outline to see the envelope’s edges */
+                border-radius: 4px;
+                top: 0;
+                left: 0;
+                z-index: 1;                /* Behind the flap */
+            }
+
 
             .flap {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                background: #ff8e8e;
+                background: #fbaaaa;
                 clip-path: polygon(0 0, 100% 0, 50% 50%);
                 transform-origin: top;
                 transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -473,15 +487,16 @@
 <!-- Add after Gallery section -->
 <section id="love-letter">
     <div class="envelope" onclick="toggleLetter()">
+        <div class="envelope-body"></div>
         <div class="flap"></div>
         <div class="letter">
             <div class="letter-content">
-                <h3>To My Jasmine,</h3>
-                <p>[Your heartfelt message here]</p>
-                <p class="signature">Forever Yours,<br>Your Name</p>
+                <h3>To Jasmine Khan,</h3>
+                <p>I love you so much</p>
+                <p class="signature">Forever Yours,<br>Sajeel Khan</p>
             </div>
         </div>
-    </div>
+    </div>    
 </section>
 
 <script>
