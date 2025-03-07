@@ -186,62 +186,64 @@
             background-image: url('data:image/svg+xml;utf8,<svg ...badger svg... </svg>');
         }
 
+            /* Hufflepuff Section Container */
         #hufflepuff {
-            background: linear-gradient(45deg, #2d2d2d 0%, #1a1a1a 100%) !important;
-            padding: 6rem 2rem;
+            background: #1a1a1a; /* Solid dark background for sophistication */
+            padding: 4rem 2rem;
             position: relative;
             overflow: hidden;
+            text-align: center;
+            color: #f1f1f1;
         }
 
+            /* Container for Centered Content */
         .hp-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
-        #hufflepuff::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 10%, rgba(255,219,0,0.1) 1%, transparent 10%),
-                radial-gradient(circle at 90% 90%, rgba(255,219,0,0.1) 1%, transparent 10%);
-            background-size: 50px 50px;
+            /* Badge Image */
+        .hp-container img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
         }
 
-        #hufflepuff::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23FFDB00" d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V136H296C309.3 136 320 146.7 320 160C320 173.3 309.3 184 296 184H280V232H328C341.3 232 352 242.7 352 256C352 269.3 341.3 280 328 280H280V392C280 405.3 269.3 416 256 416C242.7 416 232 405.3 232 392V280H184C170.7 280 160 269.3 160 256C160 242.7 170.7 232 184 232H232V184H216C202.7 184 192 173.3 192 160C192 146.7 202.7 136 216 136H232V120z"/></svg>');
-            opacity: 0.1;
-            pointer-events: none;
+            /* Accent Heading */
+        .hp-accent {
+            color: #FFDB00; /* Hufflepuff gold accent */
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
+            /* Paragraph Styling */
+        #hufflepuff p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+            /* Traits Layout */
         .house-traits {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            justify-content: center;
             gap: 2rem;
-            max-width: 1200px;
         }
 
+            /* Trait Cards */
         .trait {
-            padding: 2rem;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255,219,0,0.3);
+            background: rgba(255, 219, 0, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #FFDB00;
+            transition: transform 0.3s ease;
         }
+
         .trait:hover {
             transform: translateY(-5px);
-            background: rgba(255,219,0,0.1);
-            border-color: #ffdb00;
         }
+
 
         .floating {
             animation: float 3s ease-in-out infinite;
@@ -472,18 +474,18 @@
     <!-- Add this after Gallery section -->
 <section id="hufflepuff">
     <div class="hp-container">
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='100' height='100'><path fill='%23FFDB00' d='M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V136H296C309.3 136 320 146.7 320 160C320 173.3 309.3 184 296 184H280V232H328C341.3 232 352 242.7 352 256C352 269.3 341.3 280 328 280H280V392C280 405.3 269.3 416 256 416C242.7 416 232 405.3 232 392V280H184C170.7 280 160 269.3 160 256C160 242.7 170.7 232 184 232H232V184H216C202.7 184 192 173.3 192 160C192 146.7 202.7 136 216 136H232V120z'/></svg>" 
-             alt="Hufflepuff Badge" 
-             class="floating">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='80' height='80'><path fill='%23FFDB00' d='M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z'/></svg>" 
+            alt="Hufflepuff Badge">
         <h2 class="hp-accent">Jasmine's Hogwarts House</h2>
-        <p>True Hufflepuff - Loyal • Patient • Fair • Hardworking</p>
+        <p>True Hufflepuff – Loyal • Patient • Fair • Modest</p>
         <div class="house-traits">
-            <div class="trait">🦡 Badger Wisdom</div>
-            <div class="trait">🍯 Honey-Sweet Heart</div>
-            <div class="trait">🌱 Earth's Nurturer</div>
+        <div class="trait">🦡 Badger Wisdom</div>
+        <div class="trait">🍯 Honey-Sweet Heart</div>
+        <div class="trait">🌱 Earth's Nurturer</div>
         </div>
     </div>
 </section>
+      
 <!-- Add after Gallery section -->
 <section id="love-letter">
     <div class="envelope" onclick="toggleLetter()">
