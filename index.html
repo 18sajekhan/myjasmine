@@ -178,38 +178,41 @@
             font-style: italic;
         }
                 /* === ADD THEME ACCENTS HERE === */
-        #hufflepuff .hp-accent {
-            color: #FFDB00; /* Hufflepuff yellow */
-            text-shadow: 1px 1px 3px rgba(45, 45, 45, 0.3); /* Black shadow for contrast */
-            font-family: 'Cinzel', serif !important;
-            /* Optional: Add badger motif */
-            background-image: url('data:image/svg+xml;utf8,<svg ...badger svg... </svg>');
-        }
-
-            /* Hufflepuff Section Container */
+        /* Hufflepuff Section Container */
         #hufflepuff {
             background: #1a1a1a; /* Solid dark background for sophistication */
             padding: 4rem 2rem;
             position: relative;
-            overflow: hidden;
+            overflow: hidden;   
             text-align: center;
             color: #f1f1f1;
         }
 
-            /* Container for Centered Content */
+        /* Container for Centered Content */
         .hp-container {
             max-width: 800px;
             margin: 0 auto;
         }
 
-            /* Badge Image */
+        /* Badge Image */
         .hp-container img {
             width: 80px;
             height: auto;
             margin-bottom: 1rem;
         }
 
-            /* Accent Heading */
+        /* Floating Animation for Badge */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Accent Heading */
         .hp-accent {
             color: #FFDB00; /* Hufflepuff gold accent */
             font-family: 'Cinzel', serif;
@@ -217,20 +220,20 @@
             margin-bottom: 0.5rem;
         }
 
-            /* Paragraph Styling */
+        /* Paragraph Styling */
         #hufflepuff p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
 
-            /* Traits Layout */
+        /* Traits Layout */
         .house-traits {
             display: flex;
             justify-content: center;
             gap: 2rem;
         }
 
-            /* Trait Cards */
+        /* Trait Cards */
         .trait {
             background: rgba(255, 219, 0, 0.1);
             padding: 1rem 1.5rem;
@@ -244,17 +247,6 @@
             transform: translateY(-5px);
         }
 
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-            will-change: transform;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -474,7 +466,7 @@
     <!-- Add this after Gallery section -->
 <section id="hufflepuff">
     <div class="hp-container">
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='80' height='80'><path fill='%23FFDB00' d='M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z'/></svg>" 
+        <img src="data:image/svg+xml;utf8,<svg xmlns='https://1000logos.net/wp-content/uploads/2023/08/Hufflepuff-Logo.png' viewBox='0 0 512 512' width='80' height='80'><path fill='%23FFDB00' d='M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z'/></svg>" 
             alt="Hufflepuff Badge">
         <h2 class="hp-accent">Jasmine's Hogwarts House</h2>
         <p>True Hufflepuff – Loyal • Patient • Fair • Modest</p>
