@@ -228,7 +228,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg ...hufflepuff-crest...');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23FFDB00" d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V136H296C309.3 136 320 146.7 320 160C320 173.3 309.3 184 296 184H280V232H328C341.3 232 352 242.7 352 256C352 269.3 341.3 280 328 280H280V392C280 405.3 269.3 416 256 416C242.7 416 232 405.3 232 392V280H184C170.7 280 160 269.3 160 256C160 242.7 170.7 232 184 232H232V184H216C202.7 184 192 173.3 192 160C192 146.7 202.7 136 216 136H232V120z"/></svg>');
             opacity: 0.1;
             pointer-events: none;
         }
@@ -279,30 +279,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-        }
-        
-        #hufflepuff {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: #2D2D2D !important;
-        }
-
-        #hufflepuff p {
-            color: white;
-        }
-
-        .house-traits {
-             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .trait {
-            background: rgba(255, 219, 0, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid #FFDB00;
         }
 
         footer {
@@ -356,8 +332,9 @@
             }
 
             @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
             }
 
             @keyframes rainbow {
@@ -404,7 +381,7 @@
                 margin: 5%;
                 box-shadow: 0 0 20px rgba(0,0,0,0.1);
                 transform: translateY(110%);
-                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.6s;
                 padding: 2rem;
                 border-radius: 8px;
                 z-index: -1;
@@ -413,6 +390,7 @@
             .envelope.open .letter {
                 transform: translateY(-10%);
                 z-index: 1;
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s;
             }
 
             .letter-content {
