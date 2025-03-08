@@ -26,6 +26,7 @@
         body {
             background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
             scroll-behavior: smooth;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="32" font-size="32">🪄</text></svg>') 16 16, auto;
         }
 
         .navbar {
@@ -413,6 +414,20 @@
                 color: #ff6b6b;
             }
 
+             /* ====== ADD MAGIC TRAIL STYLES HERE ====== */
+        .magic-trail {
+            position: absolute;
+            pointer-events: none;
+            font-size: 20px;
+            opacity: 1;
+            animation: fadeAndRise 0.5s forwards;
+        }
+
+        @keyframes fadeAndRise {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-20px); opacity: 0; }
+        }
+
     </style>
 </head>
 <body>
@@ -551,7 +566,28 @@ function toggleLetter() {
             fire(0.1, { spread: 120, startVelocity: 45 });
         }
         // ====== END CONFETTI CODE ======
-        
+        // ====== ADD MAGIC TRAIL CODE STARTING HERE ======
+        let lastTrailTime = 0;
+        document.addEventListener('mousemove', function(e) {
+            const now = Date.now();
+            // Throttle to one trail every 50ms
+            if (now - lastTrailTime < 50) return;
+            lastTrailTime = now;
+            
+            const trail = document.createElement('div');
+            trail.className = 'magic-trail';
+            // Position the trail element near the cursor; adjust offset as needed
+            trail.style.left = (e.pageX - 10) + 'px';
+            trail.style.top = (e.pageY - 10) + 'px';
+            trail.innerText = '✨';  // Using sparkle emoji for the trail
+            document.body.appendChild(trail);
+            // Remove the element after the animation ends (500ms)
+            setTimeout(() => {
+                trail.remove();
+            }, 500);
+        });
+        // ====== END MAGIC TRAIL CODE ======
+
     </script>
 </body>
 </html>
