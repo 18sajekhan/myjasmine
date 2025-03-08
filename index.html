@@ -464,6 +464,8 @@
     <section id="about">
         <h2>Our Journey</h2>
         <div class="timeline">
+            <p style="margin: 2rem 0; font-size: 1.2rem;">I'm deeply grateful for the <span id="days-counter">0</span> days together.</p>
+            <div class="timeline">
             <!-- Timeline content -->
         </div>
     </section>
@@ -472,8 +474,18 @@
         <h2>Favorite Moments</h2>
         <div class="moments-grid">
             <div class="moment-card">
-                <h3>Our First Conversation</h3>
+                <h3>When I first set my eyes on you</h3>
                 <p>That random morning in September...</p>
+            </div>
+            
+            <div class="moment-card">
+                <h3>Our First Conversation</h3>
+                <p>Happened the very next day</p>
+            </div>
+            
+            <div class="moment-card">
+                <h3>The remaining <span id="total-days">0</span> days</h3>
+                <p>I've enjoyed each one of them with you</p>
             </div>
             <!-- Add more moment cards -->
         </div>
@@ -529,6 +541,13 @@ function toggleLetter() {
     
     // Force reflow hack for smooth animation
     void envelope.offsetWidth;
+}
+
+function getDaysSinceBeginning() {
+    const startDate = new Date('2023-10-01'); // Set your actual start date here
+    const today = new Date();
+    const diffTime = Math.abs(today - startDate);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 }
 
 </script>
@@ -621,6 +640,13 @@ function toggleLetter() {
             sectionObserver.observe(section);
         });
         // ====== END SCROLLSPY CODE ======
+        
+        // Update days counters
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = getDaysSinceBeginning();
+            document.getElementById('days-counter').textContent = days;
+            document.getElementById('total-days').textContent = days;
+        });
 
     </script>
 </body>
