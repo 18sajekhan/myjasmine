@@ -414,19 +414,24 @@
                 color: #ff6b6b;
             }
 
-             /* ====== ADD MAGIC TRAIL STYLES HERE ====== */
-        .magic-trail {
-            position: absolute;
-            pointer-events: none;
-            font-size: 20px;
-            opacity: 1;
-            animation: fadeAndRise 0.5s forwards;
-        }
+                     /* ====== ADD MAGIC TRAIL STYLES HERE ====== */
+            .magic-trail {
+                position: absolute;
+                pointer-events: none;
+                width: 12px;
+                height: 12px;
+                background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+                border-radius: 50%;
+                box-shadow: 0 0 8px rgba(255,255,255,0.8);
+                opacity: 1;
+                animation: fadeAndRise 0.5s forwards;
+             }
 
-        @keyframes fadeAndRise {
-            from { transform: translateY(0); opacity: 1; }
-            to { transform: translateY(-20px); opacity: 0; }
-        }
+            @keyframes fadeAndRise {
+                from { transform: translateY(0); opacity: 1; }
+                to { transform: translateY(-20px); opacity: 0; }
+            }
+
 
     </style>
 </head>
@@ -566,20 +571,19 @@ function toggleLetter() {
             fire(0.1, { spread: 120, startVelocity: 45 });
         }
         // ====== END CONFETTI CODE ======
-        // ====== ADD MAGIC TRAIL CODE STARTING HERE ======
+                // ====== ADD MAGIC TRAIL CODE STARTING HERE ======
         let lastTrailTime = 0;
         document.addEventListener('mousemove', function(e) {
             const now = Date.now();
-            // Throttle to one trail every 50ms
+            // Throttle to one trail every 50ms for performance
             if (now - lastTrailTime < 50) return;
             lastTrailTime = now;
             
             const trail = document.createElement('div');
             trail.className = 'magic-trail';
-            // Position the trail element near the cursor; adjust offset as needed
-            trail.style.left = (e.pageX - 10) + 'px';
-            trail.style.top = (e.pageY - 10) + 'px';
-            trail.innerText = '✨';  // Using sparkle emoji for the trail
+            // Adjust the position to center the 12px particle on the cursor
+            trail.style.left = (e.pageX - 6) + 'px';
+            trail.style.top = (e.pageY - 6) + 'px';
             document.body.appendChild(trail);
             // Remove the element after the animation ends (500ms)
             setTimeout(() => {
